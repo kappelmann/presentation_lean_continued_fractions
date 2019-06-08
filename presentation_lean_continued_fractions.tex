@@ -1,0 +1,116 @@
+\documentclass{beamer}
+\usepackage{appendixnumberbeamer}
+
+\mode<presentation>{\usetheme[subsectionpage=progressbar,block=fill,numbering=none]{metropolis}}
+
+\usepackage[english]{babel} 
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{caption}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{multicol} 
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathpartir}
+
+% Coloured boxes
+\usepackage{tcolorbox}
+\colorlet{alert}{mLightBrown}
+\newtcolorbox{alertbox}
+{standard jigsaw, opacityback=0,colframe=alert}
+\newtcolorbox{tbox}
+{standard jigsaw, opacityback=0,opacityframe=0}
+
+\title{Bla} % the title on the title page
+
+\author{Kevin Kappelmann} % Your name
+\institute[VU Amsterdam]{Vrije Universiteit Amsterdam}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Overview}
+	\setbeamertemplate{section in toc}[sections numbered]
+	\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=3.2em\rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}\inserttocsubsection\par}
+	\tableofcontents
+\end{frame}
+
+%------------------------------------------------
+\section{Causes of the Crisis}
+%------------------------------------------------
+\begin{frame}{The Begin of the Crisis}
+\begin{quote}
+	``Hardly anything more unfortunate can befall a scientific writer than to have one of the foundations of his edifice shaken after the work is finished.''\nocite{frege_appendix}\\\hfill-- Gottlob Frege
+\end{quote}
+	\pause
+	\centerline{\alert{A new foundation of mathematics had to be found.}}
+\end{frame}
+%------------------------------------------------
+%\subsection{End of the Crisis}
+%\begin{frame}{The Incompleteness of Mathematics}
+%\vspace{\baselineskip}
+%\begin{columns}[c,onlytextwidth]
+ %\begin{column}{.75\textwidth}
+%In 1931, Gödel ended the crisis with his two \emph{incompleteness theorems}.
+ %\end{column}
+ %\begin{column}{.25\textwidth}
+  %\centering\includegraphics[height=0.35\textheight]{img/goedel.jpg}
+ %\end{column}
+%\end{columns}
+%\pause
+	%{\begin{theorem}[First Incompleteness Theorem] Any consistent formal system within which a certain amount of elementary arithmetic can be carried out is incomplete.\end{theorem}}
+%\pause
+	%{\begin{theorem}[Second Incompleteness Theorem] Any consistent formal system within which a certain amount of elementary arithmetic can be carried out cannot prove its own consistency.\end{theorem}}
+%\end{frame}
+%------------------------------------------------
+%\section{Modern Mathematics}
+%\begin{frame}{Modern Mathematics}
+%To this day, formalism lays the foundation of mathematics.
+%\pause
+%\begin{itemize}
+	%\item Zermelo-Fraenkel set theory (ZFC) as established foundation
+%\end{itemize}
+%\pause
+%Most mathematicians do not deal with foundational research.
+%\end{frame}
+%\begin{frame}{Mathematics $\cup$ Computer Science}
+%Digitalisation of mathematics
+%\pause
+    %\begin{itemize}[<+->]
+	%\item Some see it as an inevitable enrichment; others face it with distrust.
+	%\item Can we trust proofs by computers?
+    %\end{itemize}
+%\end{frame}
+%\begin{frame}
+	%\centering{\huge Are we part of the next\\mathematical crisis?}
+%\end{frame}
+%------------------------------------------------
+\begin{frame}
+	\center
+	\Large{Thanks for your attention! Any questions?}
+\end{frame}
+%----------------------------------------------------------------------------------------
+%\begin{frame}[allowframebreaks]{References}
+  %\bibliography{../paper/sources.bib}
+  %\bibliographystyle{abbrv}
+%\end{frame}
+
+%\begin{frame}[allowframebreaks]{Image Sources}
+%\begin{itemize}
+%\item Euclid's Elements: \url{math.ubc.ca/~cass/Euclid/papyrus/tha.jpg}
+%\item Geometries: \url{upload.wikimedia.org/wikipedia/commons/thumb/7/78/Noneuclid.svg/2000px-Noneuclid.svg.png}
+%\item Cantor: \url{upload.wikimedia.org/wikipedia/commons/e/e7/Georg_Cantor2.jpg}
+%\item Frege: \url{nndb.com/people/523/000179983/gottlob-frege-2-sized.jpg}
+%\item Schools of Thought: \url{geopolicraticus.tumblr.com/post/142561195372}
+%\item Schools of Thought (comic): \url{maa.org/sites/default/files/pdf/upload\_library/22/Allendoerfer/1980/0025570x.di021111.02p0048m.pdf}
+%\item Gödel: \url{newyorker.com/tech/elements/waiting-for-godel}
+%\end{itemize}
+%\end{frame}
+
+\end{document} 
