@@ -52,11 +52,6 @@ framesep=2mm
 \begin{document}
 
 \maketitle
-%\begin{frame}{Overview}
-	%\setbeamertemplate{section in toc}[sections numbered]
-	%\setbeamertemplate{subsection in toc}{\leavevmode\leftskip=3.2em\rlap{\hskip-2em\inserttocsectionnumber.\inserttocsubsectionnumber}\inserttocsubsection\par}
-	%\tableofcontents
-%\end{frame}
 
 %------------------------------------------------
 \section{Let's Go on an Adventure}
@@ -84,7 +79,7 @@ framesep=2mm
 \end{figure}
 \end{frame}
 %------------------------------------------------
-\section{Proofs}
+\section{Definitions}
 \begin{frame}{Generalized Continued Fractions}
 A generalized continued fraction is\dots
 \pause
@@ -175,7 +170,7 @@ structure gcf := (head : α) (seq : seq (gcf_pair α))
 \begin{frame}[fragile]{Evaluate Generalized Continued Fractions}
 \begin{onlyenv}<1>
 \begin{minted}[fontsize=\small]{Lean}
-def convergents (n : ℕ) : α :=
+def convergents (g : gcf α) (n : ℕ) : α :=
 g.head + if n = 0 then 0 else aux n g.seq
 \end{minted}
 \end{onlyenv}
@@ -191,7 +186,7 @@ def aux : ℕ → seq (gcf_pair α) → α
   | some ⟨a, b⟩ := a / (b + aux n s.tail)
   end
 
-def convergents (n : ℕ) : α :=
+def convergents (g : gcf α) (n : ℕ) : α :=
 g.head + if n = 0 then 0 else aux n g.seq
 \end{minted}
 \end{onlyenv}
@@ -219,6 +214,8 @@ def cf := {g : gcf α // ∀ (n : ℕ) (a : α), (partial_numerators g).nth n = 
 So, since \emph{cf} is a subtype of \emph{gcf}, we can do
 \begin{onlyenv}<1-4>
 \begin{minted}{Lean}
+def convergents (g : gcf α) (n : ℕ) : α := ...
+
 variable (c : cf α)
 #check convergent c 0
 \end{minted}
@@ -230,6 +227,8 @@ variable (c : cf α)
 \end{onlyenv}
 \begin{onlyenv}<5->
 \begin{minted}{Lean}
+def convergents (g : gcf α) (n : ℕ) : α := ...
+
 variable (c : cf α)
 #check convergent (c : gcf α) 0
 \end{minted}
@@ -275,7 +274,7 @@ variable (c : cf α)
 \end{visibleenv}
 \end{frame}
 %------------------------------------------------
-\section{Proof Gotchas}
+\section{Proofs}
 %------------------------------------------------
 \begin{frame}[fragile]{The Proof Is Trivial}
 \begin{minted}{Lean}
@@ -319,7 +318,7 @@ Definition of (generalized) continued fractions and their evaluation
 \begin{minted}{Lean}
 structure gcf := (head : α) (seq : seq (gcf_pair α))
 def cf := {g : gcf α // ∀ (n : ℕ) (a : α), (partial_numerators g).nth n = some a → a = 1}
-def convergents (g : gcf α) : ℕ → α := ...
+def convergents (g : gcf α) (n : ℕ) : α := ...
 \end{minted}
 \end{onlyenv}
 \begin{onlyenv}<3-4>
@@ -340,7 +339,7 @@ theorem termination_iff_rat [archimedean α] (v : α) :
 \begin{minted}{Lean}
 theorem translate_rat_get_cf {q : ℚ}
 (v_eq_q : v = q) :
-  ((get_gcf q : cf ℚ) : cf α) = get_gcf v :=
+  ((get_gcf q : gcf ℚ) : gcf α) = get_gcf v :=
 \end{minted}
 \end{visibleenv}
 \end{onlyenv}
@@ -372,7 +371,7 @@ theorem epsilon_convergence : ∀ (ε > (0 : α)),
 \begin{itemize}[<+->]
 \item Lean's type system is very expressive and great for definitions\dots
 \begin{itemize}
-\item \dots if one knows the gotchas
+\item \dots if one knows the gotchas.
 \end{itemize}
 \item Support on Zulip is fantastic.
 \item Existing tactics help a LOT\dots
@@ -384,7 +383,7 @@ theorem epsilon_convergence : ∀ (ε > (0 : α)),
 %------------------------------------------------
 \begin{frame}{We Need You!}
 \Large
-\centerline{\alert{Help us making interactive theorem provers}}
+\centerline{\alert{Help us making interactive theorem proving}}
 
 \centerline{\alert{an even better place!}}
 
