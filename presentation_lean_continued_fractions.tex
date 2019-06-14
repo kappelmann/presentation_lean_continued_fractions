@@ -131,7 +131,7 @@ b + \cfrac{a_0}{b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{b_3 + \ddo
 \end{equation*}
 \pause
 \column{0.65\textwidth}
-\begin{onlyenv}<3->
+\begin{onlyenv}<4->
     \begin{minted}[fontsize=\tiny,linenos=false]{Lean}
     /- Fix a type -/
     variable (α : Type*)
@@ -146,19 +146,25 @@ b + \cfrac{a_0}{b_0 + \cfrac{a_1}{b_1 + \cfrac{a_2}{b_2 + \cfrac{a_3}{b_3 + \ddo
 \begin{minted}{Lean}
 /- Fix a type -/
 variable (α : Type*)
-
-/-- A gcf_pair consists of a partial numerator a and partial denominator b -/
-structure gcf_pair := (a : α) (b : α)
 \end{minted}
 \end{visibleenv}
 \end{onlyenv}
 \begin{onlyenv}<3>
+    \begin{minted}{Lean}
+    /- Fix a type -/
+    variable (α : Type*)
+
+    /-- A gcf_pair consists of a partial numerator a and partial denominator b -/
+    structure gcf_pair := (a : α) (b : α)
+    \end{minted}   
+\end{onlyenv}
+\begin{onlyenv}<4>
 \begin{minted}[linenos=false]{Lean}
 -- Once a sequence hits none, it stays none
 def seq := {f : ℕ → option α // ∀ {n}, f n = none → f (n + 1) = none}
 \end{minted}
 \end{onlyenv}
-\begin{onlyenv}<4>
+\begin{onlyenv}<5>
 \begin{minted}[linenos=false]{Lean}
 def seq := {f : ℕ → option α // ∀ {n}, f n = none → f (n + 1) = none}
 /-- A generalized continued fraction consists of a leading head term (the "integer part") and a sequence of partial partial numerators $a_n$ and partial denominators $b_n$ -/
